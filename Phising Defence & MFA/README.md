@@ -38,6 +38,22 @@ In Settings, enter hostnames one per line, without `https://`, paths, ports or w
 
 Orange outlines indicate suspicious links; red outlines indicate blocklisted links. No outline does not guarantee safety. The extension scans supported HTTP/HTTPS webpages; no Python server is needed when using it on ordinary websites.
 
+### Run the extension's dummy-links page (optional)
+
+If you also have the Friday package's `demo/` folder (containing `demo.html`, `demo.js` and `landing.html`), place it beside `extension/` as shown above. Open a terminal in the **project folder** (the folder containing `demo/`), then run:
+
+```powershell
+# Windows
+py -m http.server 8000 --bind 127.0.0.1
+```
+
+```bash
+# Linux / Kali / Ubuntu
+python3 -m http.server 8000 --bind 127.0.0.1
+```
+
+With the extension enabled in the same Chrome profile, open `http://localhost:8000/demo/demo.html`. The page shows normal, mismatched, IP, lookalike and blocklisted example links. Keep the terminal open while testing; press **Ctrl+C** to stop it. If you do not have the `demo/` folder, use the simulated inbox in section 3 instead. This port-8000 server is only for the Friday dummy-links page; the MFA sites use `run_demo.py` on ports 5000 and 5001.
+
 ## 2. Start the Python demo
 
 Open a terminal in the project folder. Run the appropriate commands below once to install dependencies.
