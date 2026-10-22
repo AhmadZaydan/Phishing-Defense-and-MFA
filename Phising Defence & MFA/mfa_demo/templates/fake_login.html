@@ -1,0 +1,10 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Campus Lab - Fictional phishing page</title><link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}"></head>
+<body><div class="training">LOCAL TRAINING PAGE - fictional phishing demonstration; dummy account only</div>
+<header><span class="badge">Lookalike interface</span><h1>Campus Lab</h1><p>A copied appearance does not establish the website's identity.</p></header>
+<main><section class="card narrow"><h2>Sign in to Campus Lab</h2><p>This form resembles the legitimate portal, but the browser address is different.</p>
+{% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
+<form method="post" action="/login"><input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+<label for="username">Username</label><input id="username" name="username" maxlength="80" autocomplete="off" required>
+<label for="password">Password</label><input id="password" name="password" type="password" maxlength="200" autocomplete="off" required>
+<button type="submit">Sign in - dummy demonstration</button></form>
+<p class="muted">Only <code>{{ demo_username }}</code> / <code>{{ demo_password }}</code> is accepted. No real credentials or OTPs should be entered.</p></section></main></body></html>

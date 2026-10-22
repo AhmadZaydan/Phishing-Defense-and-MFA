@@ -1,0 +1,11 @@
+{% extends 'base.html' %}{% block title %}Sign in - Campus Lab{% endblock %}{% block body %}
+<section class="card narrow"><span class="badge">Step 1 of 2</span><h2>Sign in to Campus Lab</h2>
+<p>Enter the dummy password. The server will then require your authenticator.</p>
+{% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
+<form method="post" action="/login"><input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+<label for="username">Username</label><input id="username" name="username" autocomplete="off" maxlength="80" required>
+<label for="password">Password</label><input id="password" name="password" type="password" autocomplete="off" maxlength="200" required>
+<button type="submit">Continue to authenticator</button></form>
+<p class="muted">Lab fixture: <code>{{ demo_username }}</code> / <code>{{ demo_password }}</code></p>
+<p class="muted">Five failed password attempts from this local address trigger a 60-second lock.</p></section>
+{% endblock %}

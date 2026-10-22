@@ -1,0 +1,16 @@
+{% extends 'base.html' %}{% block body %}
+<section class="card"><h2>Saturday: demonstrate both defence layers</h2>
+<p>This local lab combines your Chrome link detector with a Python password-and-authenticator login system. Both websites run on your own machine.</p>
+<ol><li>Enroll the dummy account's authenticator at <a href="/login">the legitimate login</a>.</li>
+<li>Sign out. Open the <a href="/inbox">simulated inbox</a> and inspect the extension's warning.</li>
+<li>Use only the dummy account on the fictional phishing page to demonstrate password exposure.</li>
+<li>Open a separate private browser session, submit the exposed dummy password to the legitimate site, and show that it still requires an authenticator code.</li>
+<li>Complete MFA yourself and show the protected dashboard.</li></ol>
+<p class="notice">Public dummy account: <code>{{ demo_username }}</code> / <code>{{ demo_password }}</code>. Never enter a real account into the lab.</p>
+<p class="muted">MFA enrolment must happen before demonstrating the attack. Ordinary TOTP limits password-only reuse; it is not resistant to real-time password-and-OTP relay.</p></section>
+<section class="card"><h2>What runs where?</h2><table><tr><th>Component</th><th>Address</th></tr>
+<tr><td>Legitimate portal</td><td><code>{{ legitimate_url }}</code></td></tr>
+<tr><td>Fictional phishing page</td><td><code>{{ phishing_url }}/login</code></td></tr>
+<tr><td>Link defence</td><td>Your installed Chrome extension</td></tr></table>
+<p>Keep <code>127.0.0.1</code> out of the blocklist for the warning-bypass part of the demo. Add it later to demonstrate hard blocking, then remove it again.</p></section>
+{% endblock %}

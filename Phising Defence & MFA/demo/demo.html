@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Phishing Defence Lab</title>
+<style>body{font:17px/1.6 system-ui;max-width:900px;margin:40px auto;padding:0 20px 140px}li{margin:22px 0}a{padding:5px;display:inline-block}button{padding:10px;font:inherit}code{background:#eee;padding:3px}</style>
+</head><body>
+<h1>Phishing Link Defence - Friday checks</h1>
+<p>Open this page at <code>http://localhost:8000/demo/demo.html</code>. No real credentials or live phishing destinations are used.</p>
+<ol>
+<li>Ordinary local link: <a id="ordinary" href="/demo/landing.html">Open local landing page</a></li>
+<li>Displayed-domain mismatch: <a id="mismatch" href="/demo/landing.html">https://campus.example</a></li>
+<li>IP destination: <a id="ip" href="http://127.0.0.1:8000/demo/landing.html">Open local IP destination</a></li>
+<li>Lookalike: <a id="lookalike" href="https://campuss.example/login">Open account</a> (choose Cancel)</li>
+<li>Blocklist: <a id="blocked" href="https://blocked.example/login">Open blocked example</a></li>
+<li>Misleading user information: <a id="userinfo" href="https://campus.example@another.example/login">Open account</a> (choose Cancel)</li>
+<li>Non-web link: <a id="mailto" href="mailto:student@example.com">Email example</a> (not inspected; avoid opening a mail client during demo)</li>
+</ol>
+<p>Expected initial result: 7 links; 4 suspicious; 1 blocked; 1 unsupported.</p>
+<button id="add">Add a suspicious link dynamically</button>
+<button id="change">Change ordinary link into a mismatched link</button>
+<div id="dynamic"></div>
+<h2>Network-blocking test</h2>
+<p>In extension Settings add <code>127.0.0.1</code> to blocked domains and Save. Keep <code>localhost</code> unblocked. Then type <code>http://127.0.0.1:8000/demo/landing.html</code> into a new tab. Chrome should block it. Remove that entry and Save to restore access. A loaded page is not retroactively unloaded; use a fresh navigation.</p>
+<script src="demo.js"></script></body></html>

@@ -1,0 +1,7 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dummy password exposure demonstrated</title><link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}"></head>
+<body><div class="training">LOCAL TRAINING RESULT - no real account involved</div><header><h1>Dummy password exposure demonstrated</h1></header>
+<main><section class="card"><h2>What a password-only attacker could know</h2>
+<p>You submitted the public dummy fixture to a page with a copied appearance. The page verified that it matched; it did not store your submitted password.</p>
+<p>Known dummy username: <code>{{ demo_username }}</code><br>Known dummy password: <code>{{ demo_password }}</code></p>
+<p>Now open a separate private Chrome window and enter this pair at <code>{{ legitimate_url }}/login</code>. The legitimate server should require an authenticator code and deny dashboard access until it is verified.</p>
+<p class="notice">This demonstrates password-only reuse. The fictional page does not collect or relay authenticator codes.</p></section></main></body></html>

@@ -1,0 +1,6 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{% block title %}Campus Lab{% endblock %}</title><link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}"></head>
+<body><header><span class="badge">CSCI262 local demonstration</span><h1>Campus Lab</h1><p>A fictional account portal for demonstrating link detection and MFA.</p></header>
+<main><nav><a href="/">Guide</a><a href="/inbox">Simulated inbox</a><a href="/login">Legitimate login</a><a href="/dashboard">Protected dashboard</a></nav>
+{% for message in get_flashed_messages() %}<p class="notice">{{ message }}</p>{% endfor %}
+{% block body %}{% endblock %}</main></body></html>

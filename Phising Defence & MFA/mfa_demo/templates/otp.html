@@ -1,0 +1,10 @@
+{% extends 'base.html' %}{% block body %}
+<section class="card narrow"><span class="badge">Step 2 of 2</span><h2>Authenticator verification required</h2>
+<p>The password was accepted, but this session cannot access the dashboard yet.</p>
+{% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
+<form method="post" action="/otp"><input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+<label for="code">Six-digit authenticator code</label><input id="code" name="code" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" autocomplete="one-time-code" required>
+<button type="submit">Verify and sign in</button></form>
+<p class="muted">Pending login expires three minutes after password verification. Five failed code attempts trigger a 60-second account lock. Used codes are rejected, even in another session.</p>
+<form method="post" action="/logout"><input type="hidden" name="csrf_token" value="{{ csrf_token }}"><button class="secondary" type="submit">Cancel pending login</button></form></section>
+{% endblock %}

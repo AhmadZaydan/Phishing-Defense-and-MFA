@@ -1,0 +1,12 @@
+{% extends 'base.html' %}{% block body %}
+<h2>Simulated inbox</h2><p>These are local training messages, not actual email. The extension checks their HTML hyperlinks just as it checks other permitted webpage anchors.</p>
+<article class="card mail"><span class="badge">Legitimate example</span><h2>Your Campus Lab account</h2>
+<p>Open the genuine portal to access your demonstration account.</p>
+<a id="legitimate-link" href="{{ legitimate_url }}/login">{{ legitimate_url }}/login</a>
+<p class="muted">Expected: no suspicious indicators on this link.</p></article>
+<article class="card mail"><span class="badge">Fictional phishing example</span><h2>Account verification requested</h2>
+<p>This message claims to link to Campus Lab. Compare the visible address with the real destination before continuing.</p>
+<a id="phishing-link" href="{{ phishing_url }}/login">{{ legitimate_url }}/login</a>
+<p class="muted">Expected: displayed-domain mismatch and IP-address findings. Cancel the first warning to demonstrate prevention. Later, deliberately approve it using only the dummy account to demonstrate MFA as the second layer.</p></article>
+<p class="notice">A warning can be overridden for this exercise. A blocklisted domain cannot. Do not add 127.0.0.1 to the blocklist until the hard-blocking step.</p>
+{% endblock %}

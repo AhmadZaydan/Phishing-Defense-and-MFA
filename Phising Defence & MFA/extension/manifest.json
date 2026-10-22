@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Phishing Link Defence",
+  "version": "0.2.0",
+  "minimum_chrome_version": "120",
+  "description": "LinkGuard-inspired link inspection and configurable domain blocking for CSCI262.",
+  "permissions": ["storage", "declarativeNetRequest", "activeTab"],
+  "background": {"service_worker": "background.js"},
+  "action": {"default_popup": "popup.html"},
+  "options_page": "options.html",
+  "content_scripts": [{
+    "matches": ["http://*/*", "https://*/*"],
+    "js": ["detector.js", "config.js", "content.js"],
+    "run_at": "document_start",
+    "all_frames": true
+  }]
+}

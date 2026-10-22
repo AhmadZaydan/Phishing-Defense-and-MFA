@@ -1,0 +1,2 @@
+{% extends 'base.html' %}{% block body %}<section class="card"><h2>Local security events</h2><p>No passwords, authenticator secrets, or submitted codes are logged.</p>
+<table><thead><tr><th>Unix timestamp</th><th>Event</th></tr></thead><tbody>{% for event in events %}<tr><td>{{ '%.0f'|format(event['at']) }}</td><td>{{ event['event'] }}</td></tr>{% endfor %}</tbody></table></section>{% endblock %}

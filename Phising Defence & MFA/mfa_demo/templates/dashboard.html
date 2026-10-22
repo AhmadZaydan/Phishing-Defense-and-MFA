@@ -1,0 +1,7 @@
+{% extends 'base.html' %}{% block body %}
+<section class="card"><span class="badge">Protected area</span><h2>Welcome, {{ username }}</h2>
+<p class="success">Access granted: password and authenticator code verified by the server.</p>
+<p>This fictional dashboard represents account data that a password-only attacker must not reach. Its session expires after 15 minutes.</p>
+<p><a href="/audit">View local security events</a></p>
+<form method="post" action="/logout"><input type="hidden" name="csrf_token" value="{{ csrf_token }}"><button type="submit">Sign out</button></form></section>
+{% endblock %}
