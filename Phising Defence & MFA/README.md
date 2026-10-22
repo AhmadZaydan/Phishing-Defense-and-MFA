@@ -40,15 +40,14 @@ Orange outlines indicate suspicious links; red outlines indicate blocklisted lin
 
 ## 2. Start the Python demo
 
-Open a terminal in the project folder. Run the appropriate commands below once to create the environment and install dependencies.
+Open a terminal in the project folder. Run the appropriate commands below once to install dependencies.
 
 ### Windows
 
 ```powershell
 cd mfa_demo
-py -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe run_demo.py
+pip install -r requirements.txt
+run_demo.py
 ```
 
 If `py` is unavailable, use `python -m venv .venv` for the second command.
